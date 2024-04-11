@@ -1,0 +1,91 @@
+
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{mathtools}% http://ctan.org/pkg/mathtools
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Assignment 10. Regression}
+\author{Your name}
+
+\begin{document}
+\maketitle
+
+Solve the following two problems -- each problem on a separate page -- and submit to Gradescope for grading. 
+
+Clearly present every step of your solution.
+
+\newpage
+\section{Least squares [9 points]}
+\subsection{Explain [3 points]}
+Explain the method of least squares in your own words (Short, no chatGPT please).\\
+
+
+\subsection{Compute [3 points]}
+Compute the equation of the line y=ax+b which best fits the following data points:
+${(0,6), (1,0),(2,0)}$.
+
+\noindent Show all intermediate steps.\\
+
+ $\begin{pmatrix}a \\ b\end{pmatrix}
+ =\begin{pmatrix}
+   \smashoperator[r]{\sum_{i=1}^{n}} x_i^2 & 
+        \smashoperator[r]{\sum_{i=1}^{n}} x_i\\ 
+  \smashoperator[r]{\sum_{i=1}^{n}} x_i & 
+       \smashoperator[r]{\sum_{i=1}^{n}} 1
+   \end{pmatrix}^{-1}
+   \begin{pmatrix}
+   \smashoperator[r]{\sum_{i=1}^{n}} x_iy_i\\ 
+  \smashoperator[r]{\sum_{i=1}^{n}} y_i 
+   \end{pmatrix}$
+
+   $
+ =\begin{pmatrix}
+   - &  -\\ 
+   - &  -
+   \end{pmatrix}^{-1}
+   \begin{pmatrix}
+  -\\ 
+  -
+   \end{pmatrix} = $\\
+
+\subsection{Read and learn [3 points]}
+
+What is the $SSR$ error of your model?
+
+
+\noindent Learn about the \emph{coefficient of determination} here: 
+
+\url{https://en.wikipedia.org/wiki/Coefficient_of_determination}\\
+
+\noindent Compute the value of the coefficient of determination $r^2$ for your model.
+
+\noindent Based on the resulting value -- how well do you think the variance in $x$ describes the variance in $y$? 
+
+
+\newpage
+\section{Gradient descent [6 points]}
+\subsection{Watch and learn [3 points]}
+Watch the following step-by-step explanation of the gradient descent algorithm:
+\url{https://www.youtube.com/watch?v=sDv4f4s2SB8}.
+
+Explain how you understand the idea of gradient descent in your own words (one short paragraph, and no chatGPT please).
+
+\subsection{First step for intercept [3 points]}
+Let's use the same data points as before: ${(0,6), (1,0),(2,0)}$
+
+Let our original random guess for a slope be $a=-1$. Keeping $a$ constant, we look for an optimal value of $b$ starting with $b=0$. Using learning rate $\eta=0.1$ what would be the value of $b$ after one step of the gradient descent algorithm?
+
+Show all the steps of your computation, including partial derivatives\\ 
+
+ 
+\end{document}
